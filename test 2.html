@@ -19,7 +19,6 @@
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             min-height: 100vh;
             padding: 12px;
-            perspective: 1200px;
         }
 
         /* ذرات پس زمینه */
@@ -54,13 +53,13 @@
             z-index: 1;
         }
 
-        /* انیمیشن ورود سه بعدی */
+        /* انیمیشن ورود */
         @keyframes fadeIn3D {
             from { opacity: 0; transform: translateY(30px) rotateX(-10deg); }
             to { opacity: 1; transform: translateY(0) rotateX(0); }
         }
 
-        /* فرم‌های سه بعدی - موبایل پسند */
+        /* فرم‌ها */
         .form-box {
             max-width: 500px;
             width: 95%;
@@ -71,14 +70,8 @@
             border-radius: 35px;
             animation: fadeIn3D 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             border: 1px solid rgba(102,126,234,0.4);
-            transform-style: preserve-3d;
             transition: all 0.3s;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        }
-
-        .form-box:hover {
-            transform: translateY(-5px);
-            border-color: rgba(102,126,234,0.7);
         }
 
         .form-box h2 {
@@ -100,13 +93,11 @@
             font-size: 15px;
             background: rgba(0,0,0,0.5);
             color: #fff;
-            transition: all 0.3s;
         }
 
         .form-box input:focus {
             outline: none;
             border-color: #667eea;
-            transform: scale(1.01);
         }
 
         .form-box button {
@@ -120,7 +111,6 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 15px;
-            transition: all 0.3s;
         }
 
         .form-box button:active {
@@ -138,7 +128,7 @@
             font-size: 14px;
         }
 
-        /* هدر موبایل پسند با منوی همبرگری */
+        /* هدر */
         .header {
             display: flex;
             justify-content: space-between;
@@ -163,15 +153,15 @@
 
         /* دکمه همبرگری */
         .menu-toggle {
-            display: none;
             background: rgba(102,126,234,0.3);
             border: none;
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
             color: white;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
@@ -191,7 +181,7 @@
             cursor: pointer;
             font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: all 0.2s;
             white-space: nowrap;
         }
 
@@ -199,7 +189,7 @@
             transform: scale(0.96);
         }
 
-        /* محصولات - گرید واکنش‌گرا */
+        /* محصولات */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -213,9 +203,8 @@
             text-align: center;
             background: rgba(25, 25, 45, 0.92);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.2s;
             border: 1px solid rgba(102,126,234,0.2);
-            animation: fadeIn3D 0.4s ease-out backwards;
             cursor: pointer;
         }
 
@@ -268,7 +257,6 @@
             margin: 5px;
             font-weight: 600;
             font-size: 13px;
-            transition: all 0.2s;
         }
 
         button:active {
@@ -345,7 +333,7 @@
             margin-top: 12px;
         }
 
-        /* جدول واکنش‌گرا - برای موبایل اسکرول افقی */
+        /* جدول واکنش‌گرا */
         .table-wrapper {
             overflow-x: auto;
             border-radius: 20px;
@@ -368,34 +356,32 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
         }
 
-        /* ==== استایل موبایل ==== */
+        /* استایل موبایل */
         @media (max-width: 768px) {
             body {
                 padding: 8px;
             }
             
-            .menu-toggle {
-                display: flex;
-            }
-            
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 65px;
                 right: 10px;
                 left: 10px;
-                background: rgba(10, 10, 25, 0.95);
+                background: rgba(10, 10, 25, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 border-radius: 28px;
                 padding: 15px;
                 gap: 10px;
                 border: 1px solid rgba(102,126,234,0.4);
-                z-index: 100;
+                z-index: 1000;
+                max-height: 80vh;
+                overflow-y: auto;
             }
             
             .nav-links.show {
-                display: flex;
+                display: flex !important;
             }
             
             .nav-links button {
@@ -445,10 +431,6 @@
                 padding: 8px 16px;
                 font-size: 12px;
             }
-            
-            .logo {
-                font-size: 18px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -458,11 +440,6 @@
             
             .product-card img {
                 height: 200px;
-            }
-            
-            .form-box {
-                width: 100%;
-                margin: 20px 0;
             }
         }
 
@@ -517,20 +494,20 @@
         <div class="link-btn"><a href="#" onclick="showLogin()">↩️ بازگشت به ورود</a></div>
     </div>
 
-    <!-- پنل مشتری با منوی همبرگری -->
+    <!-- پنل مشتری -->
     <div id="customerPanel" class="hidden">
         <div class="header">
             <div class="logo">👑 فروشگاه سه بعدی</div>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="menu-toggle" onclick="toggleCustomerMenu()">☰</button>
             <div class="nav-links" id="customerMenu">
-                <button onclick="showCustomerSection('products'); toggleMenu()">🛍️ کالاها</button>
-                <button onclick="showCustomerSection('specials'); toggleMenu()">✨ ویژه‌ها</button>
-                <button onclick="showCustomerSection('discounts'); toggleMenu()">🎁 تخفیف‌ها</button>
-                <button onclick="showCustomerSection('cart'); toggleMenu()">🛒 سبد خرید</button>
-                <button onclick="showCustomerSection('tickets'); toggleMenu()">🎫 تیکت‌ها</button>
-                <button onclick="showCustomerSection('messages'); toggleMenu()">📬 پیام‌ها</button>
-                <button onclick="showCustomerSection('creditRequest'); toggleMenu()">💰 درخواست اعتبار</button>
-                <button onclick="logout(); toggleMenu()">🚪 خروج</button>
+                <button onclick="showCustomerSection('products'); closeCustomerMenu()">🛍️ کالاها</button>
+                <button onclick="showCustomerSection('specials'); closeCustomerMenu()">✨ ویژه‌ها</button>
+                <button onclick="showCustomerSection('discounts'); closeCustomerMenu()">🎁 تخفیف‌ها</button>
+                <button onclick="showCustomerSection('cart'); closeCustomerMenu()">🛒 سبد خرید</button>
+                <button onclick="showCustomerSection('tickets'); closeCustomerMenu()">🎫 تیکت‌ها</button>
+                <button onclick="showCustomerSection('messages'); closeCustomerMenu()">📬 پیام‌ها</button>
+                <button onclick="showCustomerSection('creditRequest'); closeCustomerMenu()">💰 درخواست اعتبار</button>
+                <button onclick="logout(); closeCustomerMenu()">🚪 خروج</button>
             </div>
         </div>
         <div class="content-padding">
@@ -545,21 +522,21 @@
         </div>
     </div>
 
-    <!-- پنل ادمین با منوی همبرگری -->
+    <!-- پنل ادمین -->
     <div id="adminPanel" class="hidden">
         <div class="header">
             <div class="logo">👑 پنل مدیریت سه بعدی</div>
             <button class="menu-toggle" onclick="toggleAdminMenu()">☰</button>
             <div class="nav-links" id="adminMenu">
-                <button onclick="showAdminSection('dashboard'); toggleAdminMenu()">📊 داشبورد</button>
-                <button onclick="showAdminSection('products'); toggleAdminMenu()">👕 مدیریت کالا</button>
-                <button onclick="showAdminSection('orders'); toggleAdminMenu()">📦 سفارشات</button>
-                <button onclick="showAdminSection('users'); toggleAdminMenu()">👥 مدیریت اعضا</button>
-                <button onclick="showAdminSection('credit'); toggleAdminMenu()">💰 تعیین اعتبار</button>
-                <button onclick="showAdminSection('creditRequests'); toggleAdminMenu()">📝 درخواست اعتبار</button>
-                <button onclick="showAdminSection('tickets'); toggleAdminMenu()">🎫 تیکت‌ها</button>
-                <button onclick="showAdminSection('messages'); toggleAdminMenu()">📨 پیام‌ها</button>
-                <button onclick="logout(); toggleAdminMenu()">🚪 خروج</button>
+                <button onclick="showAdminSection('dashboard'); closeAdminMenu()">📊 داشبورد</button>
+                <button onclick="showAdminSection('products'); closeAdminMenu()">👕 مدیریت کالا</button>
+                <button onclick="showAdminSection('orders'); closeAdminMenu()">📦 سفارشات</button>
+                <button onclick="showAdminSection('users'); closeAdminMenu()">👥 مدیریت اعضا</button>
+                <button onclick="showAdminSection('credit'); closeAdminMenu()">💰 تعیین اعتبار</button>
+                <button onclick="showAdminSection('creditRequests'); closeAdminMenu()">📝 درخواست اعتبار</button>
+                <button onclick="showAdminSection('tickets'); closeAdminMenu()">🎫 تیکت‌ها</button>
+                <button onclick="showAdminSection('messages'); closeAdminMenu()">📨 پیام‌ها</button>
+                <button onclick="logout(); closeAdminMenu()">🚪 خروج</button>
             </div>
         </div>
         <div class="content-padding">
@@ -576,23 +553,51 @@
 </div>
 
 <script>
-    // توابع منوی همبرگری
-    function toggleMenu() {
+    // ==================== توابع منوی همبرگری ====================
+    function toggleCustomerMenu() {
         const menu = document.getElementById('customerMenu');
-        if (menu) menu.classList.toggle('show');
+        if (menu) {
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            } else {
+                menu.classList.add('show');
+            }
+        }
     }
+    
+    function closeCustomerMenu() {
+        const menu = document.getElementById('customerMenu');
+        if (menu) menu.classList.remove('show');
+    }
+    
     function toggleAdminMenu() {
         const menu = document.getElementById('adminMenu');
-        if (menu) menu.classList.toggle('show');
+        if (menu) {
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            } else {
+                menu.classList.add('show');
+            }
+        }
     }
-    // بستن منو با کلیک خارج
+    
+    function closeAdminMenu() {
+        const menu = document.getElementById('adminMenu');
+        if (menu) menu.classList.remove('show');
+    }
+    
+    // بستن منو با کلیک خارج از آن
     document.addEventListener('click', function(event) {
         const customerMenu = document.getElementById('customerMenu');
         const adminMenu = document.getElementById('adminMenu');
-        const toggleBtn = document.querySelector('.menu-toggle');
-        if (toggleBtn && !toggleBtn.contains(event.target)) {
-            if (customerMenu) customerMenu.classList.remove('show');
-            if (adminMenu) adminMenu.classList.remove('show');
+        const customerToggle = document.querySelector('#customerPanel .menu-toggle');
+        const adminToggle = document.querySelector('#adminPanel .menu-toggle');
+        
+        if (customerMenu && customerToggle && !customerToggle.contains(event.target) && !customerMenu.contains(event.target)) {
+            customerMenu.classList.remove('show');
+        }
+        if (adminMenu && adminToggle && !adminToggle.contains(event.target) && !adminMenu.contains(event.target)) {
+            adminMenu.classList.remove('show');
         }
     });
 
@@ -753,6 +758,7 @@
     }
 
     function showCustomerSection(section) {
+        closeCustomerMenu();
         const sections = ['customerProducts', 'customerSpecials', 'customerDiscounts', 'customerCart', 'customerTickets', 'customerMessages', 'customerCreditRequest'];
         sections.forEach(s => {
             const el = document.getElementById(s);
@@ -1036,7 +1042,7 @@
         document.getElementById('userCreditRequests').innerHTML = html;
     }
 
-    // پنل ادمین (خلاصه و ساده شده برای موبایل)
+    // پنل ادمین
     function showAdminPanel() {
         document.getElementById('loginPage').classList.add('hidden');
         document.getElementById('customerPanel').classList.add('hidden');
@@ -1045,6 +1051,7 @@
     }
 
     function showAdminSection(section) {
+        closeAdminMenu();
         const sections = ['adminDashboard', 'adminProducts', 'adminOrders', 'adminUsers', 'adminCredit', 'adminCreditRequests', 'adminTickets', 'adminMessages'];
         sections.forEach(s => { const el = document.getElementById(s); if (el) el.classList.add('hidden'); });
         if (section === 'dashboard') { document.getElementById('adminDashboard').classList.remove('hidden'); renderDashboard(); }
@@ -1135,7 +1142,7 @@
     function renderUsersList() {
         const customers = users.filter(u => u.role === 'customer');
         if (customers.length === 0) { document.getElementById('adminUsers').innerHTML = '<div class="message-box">👥 هیچ کاربری ثبت نام نکرده است</div>'; return; }
-        let html = '<h3 class="section-title">👥 لیست کاربران</h3><div class="table-wrapper"><table><thead><tr><th>ردیف</th><th>نام</th><th>شماره</th><th>ایمیل</th><th>اعتبار</th></tr></thead><tbody>';
+        let html = '<h3 class="section-title">👥 لیست کاربران</h3><div class="table-wrapper"><tr><thead><tr><th>ردیف</th><th>نام</th><th>شماره</th><th>ایمیل</th><th>اعتبار</th></tr></thead><tbody>';
         customers.forEach((u, index) => { html += `<tr><td>${index + 1}</td><td>${u.name}</td><td>${u.phone}</td><td>${u.email}</td><td style="color:#a8c0ff">${(u.credit || 0).toLocaleString()}</td></tr>`; });
         html += '</tbody></table></div>';
         document.getElementById('adminUsers').innerHTML = html;
